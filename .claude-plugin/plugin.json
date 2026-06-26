@@ -1,0 +1,12 @@
+{
+  "name": "salvage",
+  "version": "0.1.0",
+  "description": "Start over, simpler — recover the real requirements from a project that went down a bad path and emit a portable spec to rebuild on the simplest maintainable stack.",
+  "author": {
+    "name": "Edward Honour"
+  },
+  "homepage": "https://github.com/maludb/salvage-project",
+  "repository": "https://github.com/maludb/salvage-project",
+  "license": "MIT",
+  "keywords": ["rewrite", "rebuild", "simplicity", "requirements", "spec"]
+}
