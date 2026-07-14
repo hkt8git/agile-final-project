@@ -132,6 +132,48 @@ Example user stories (matching `.github/ISSUE_TEMPLATE/user-story.md`):
 - *As a* compliance owner, *I need* every contact to carry source provenance and opt-out
   status *so that* we can honor GDPR/CCPA requests.
 
+## 6. Domain signal model — corporate, security & training video production
+
+The target field for this platform. These are the concrete buying signals and triggers the
+research agent and fit-scoring engine should detect, and where each signal comes from.
+
+### Timing / financial triggers
+
+| Signal | Why it matters | Data source in the platform |
+|---|---|---|
+| Q4 budget roll-over into Q1 | Unspent capex gets released before "use-it-or-lose-it" closes | Firmographics (strong prior FY) + fiscal calendar |
+| Calendar-aligned fiscal year → Q1 | New annual budgets approved and released in Q1 | Firmographic enrichment |
+| Office opening / facility expansion | Immediate need for security video integration + facility training videos | Press-release & news monitoring (research agent web search) |
+| New VP of HR or CMO | New execs revamp training content / corporate videos to make their mark | Leadership-change tracking (enrichment APIs, LinkedIn signals) |
+
+### Behavioral buying signals
+
+| Signal | Why it matters | Data source |
+|---|---|---|
+| Active paid search / social / YouTube ads | Proves an established video marketing budget | Ad-library lookups (research agent) |
+| Visits to portfolio / pricing pages | High-intent account behavior | B2B visitor tracking integration (Dealfront / Leadfeeder) |
+| Case-study downloads, video ad views | Decision-maker engagement | Own-site analytics + marketing automation webhook |
+| Rapid hiring of frontline or compliance staff | Urgent need for standardized onboarding/training videos | Job-postings monitoring (job board APIs) |
+
+### Qualification framework (BANT)
+
+Encode as explicit fields on each lead, feeding the fit score:
+
+- **Budget** — discusses investment range (vs. only asking for ballparks)
+- **Authority** — contact is a decision-maker: Marketing Director, HR Manager, Operations Director
+- **Need** — named pain point: high employee turnover (training videos), new compliance standards (compliance videos), new facility (security video)
+- **Timeline** — concrete deadline: product launch, trade show, compliance audit
+
+### Implications for the build
+
+- The prototype's rule-based fit rubric should be re-weighted around these signals
+  (expansion news, exec change, compliance hiring velocity, ad spend, Q1 window).
+- The research agent's per-lead brief should explicitly report: fiscal-year alignment,
+  recent expansion/relocation news, leadership changes, hiring velocity in
+  frontline/compliance roles, and active ad campaigns.
+- Sprint backlog addition: integrate a website visitor-tracking source (Dealfront or
+  Leadfeeder API) as an inbound intent feed alongside outbound enrichment.
+
 ## Sources
 
 - [Clay vs Apollo 2026 — Knowlee](https://www.knowlee.ai/compare/clay-vs-apollo)
